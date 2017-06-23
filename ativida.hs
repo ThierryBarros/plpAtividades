@@ -4,23 +4,23 @@ import System.IO
 
 
 
-aviao :: Int -> Int -> IO()
+voo :: Int -> Int -> IO()
 
-aviao adequado inicial = do
+voo ade ini = do
 
   z <- getLine
 
   let atual = read z
 
-  if (inicial == adequado) || (atual == adequado) then putStrLn "OK"
+  if (ini == ade) || (atual == ade) then putStrLn "OK"
 
-    else if (abs(adequado - inicial)) > (abs(adequado - atual)) then do putStrLn "ADEQUADO"
+    else if (abs(ade - ini)) > (abs(ade- atual)) then do putStrLn "ADEQUADO"
 
-                                                                        aviao adequado atual
+                                                                        voo ade atual
 
       else do putStrLn "PERIGO"
 
-              aviao adequado atual
+              voo ade atual
 
 
 
@@ -30,8 +30,8 @@ main = do
 
   y <- getLine
 
-  let adequado = read x
+  let ade = read x
 
-  let anterior = read y
+  let ant = read y
 
-  aviao adequado anterior
+  voo ade ant
