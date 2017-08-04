@@ -1,58 +1,13 @@
-comp(Obj, Atual, Ult):-
-
-    
-
-    Obj == Atual
-
-        , write('OK')
-
-    ; abs(Obj - Atual) < abs(Obj - Ult),
-
-        write('ADEQUADO'), nl,
-
-        read_line_to_codes(user_input, A2),
-
-        string_to_atom(A2,A1),
-
-        atom_number(A1,A),
-
-        comp(Obj, A, Atual)
-
-    ;abs(Obj - Atual) >= abs(Obj - Ult),
-
-        write('PERIGO'), nl,
-
-        read_line_to_codes(user_input, A2),
-
-        string_to_atom(A2,A1),
-
-        atom_number(A1,A),
-
-        comp(Obj, A, Atual).
-
 :- initialization main.
-
+   insere(X, L, [X|L]).
+   readList(0,[]).
+   readList(N,Lista):-ler(P),insere(P,K,Lista),V is N-1,readList(V,K).
+   ler(P):-read_line_to_codes(user_input,P2),string_to_atom(P2,P1),atom_number(P1,P).
+   
+   printList([],[]).	
+   printList([NH|NT],[SH|ST]):-Z is NH+SH,write(Z),nl,printList(NT,ST).	
 main:-
-
-    read_line_to_codes(user_input, G2),
-
-    string_to_atom(G2,G1),
-
-    atom_number(G1,Goal),
-
-    read_line_to_codes(user_input, L2),
-
-    string_to_atom(L2,L1),
-
-    atom_number(L1,Last),
-
-    read_line_to_codes(user_input, C2),
-
-    string_to_atom(C2,C3),
-
-    atom_number(C3, Current),
-
-    
-
-    comp(Goal, Current, Last).
-
+   	ler(N),
+	readList(N,Word),
+	readList(N,Word1),
+	printList(Word,Word1).
